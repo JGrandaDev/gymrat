@@ -8,17 +8,17 @@ function getShareUrl() {
 }
 
 function shareOnWhatsApp() {
-    const url = `https://api.whatsapp.com/send?text=¡Mira esto! ${getShareUrl()}`;
+    const url = `https://api.whatsapp.com/send?text=Estas son mis redes: ${getShareUrl()}`;
     window.open(url, "_blank");
 }
 
 function shareOnFacebook() {
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${getShareUrl()}`;
+    const url = `fb://facewebmodal/f?href=${getShareUrl()}`;
     window.open(url, "_blank");
 }
 
 function shareOnSnapchat() {
-    const url = `https://www.snapchat.com/share?url=${getShareUrl()}`;
+    const url = `snapchat://send?attachmentUrl=${getShareUrl()}`;
     window.open(url, "_blank");
 }
 

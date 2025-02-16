@@ -13,12 +13,12 @@ function shareOnWhatsApp() {
 }
 
 function shareOnFacebook() {
-    const url = `fb://facewebmodal/f?href=${getShareUrl()}`;
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${getShareUrl()}`;
     window.open(url, "_blank");
 }
 
 function shareOnSnapchat() {
-    const url = `snapchat://send?attachmentUrl=${getShareUrl()}`;
+    const url = `https://www.snapchat.com/share?url=${getShareUrl()}`;
     window.open(url, "_blank");
 }
 

@@ -98,3 +98,44 @@ p {
     font-size: 12px;
     color: #888;
 }
+/* Botón de compartir en la esquina superior derecha */
+.share-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Burbuja de compartir */
+.share-bubble {
+    position: absolute;
+    top: 50px;
+    right: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.share-bubble button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.share-bubble button img {
+    width: 20px;
+    height: 20px;
+}

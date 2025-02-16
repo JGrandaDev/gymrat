@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,17 +8,36 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="icon" href="assets/img/favicon.png" type="image">
 </head>
+
 <body>
     <div class="container">
         <div class="header">
             <img src="assets/img/fondo.jpg" alt="Fondo" class="header-bg">
+            <!-- Botón de compartir -->
+            <button class="share-button" onclick="toggleShareBubble()">🔗</button>
+
+            <!-- Burbuja de compartir -->
+            <div class="share-bubble" id="shareBubble">
+                <button onclick="shareOnWhatsApp()">
+                    <img src="assets/img/whatsapp.png" alt="WhatsApp"> WhatsApp
+                </button>
+                <button onclick="shareOnFacebook()">
+                    <img src="assets/img/facebook.png" alt="Facebook"> Facebook
+                </button>
+                <button onclick="shareOnSnapchat()">
+                    <img src="assets/img/snapchat.png" alt="Snapchat"> Snapchat
+                </button>
+                <button onclick="copyToClipboard()">
+                    <img src="assets/img/copy.png" alt="Copiar"> Copiar Link
+                </button>
+            </div>
             <div class="profile">
                 <img src="assets/img/avatar.jpg" alt="Avatar" class="avatar">
                 <h1>juliangfitness</h1>
                 <p>Join my communities</p>
             </div>
         </div>
-        
+
         <div class="links">
             <h2>Our Social Media</h2>
             <a href="https://discord.gg/pf3qtHvD7j" class="link">
@@ -41,5 +61,47 @@
             </a>
         </div>
     </div>
+
+    <script>
+        function toggleShareBubble() {
+            const bubble = document.getElementById("shareBubble");
+            bubble.style.display = (bubble.style.display === "flex") ? "none" : "flex";
+        }
+
+        function getShareUrl() {
+            return encodeURIComponent(window.location.href);
+        }
+
+        function shareOnWhatsApp() {
+            const url = `https://api.whatsapp.com/send?text=¡Mira esto! ${getShareUrl()}`;
+            window.open(url, "_blank");
+        }
+
+        function shareOnFacebook() {
+            const url = `https://www.facebook.com/sharer/sharer.php?u=${getShareUrl()}`;
+            window.open(url, "_blank");
+        }
+
+        function shareOnSnapchat() {
+            const url = `https://www.snapchat.com/share?url=${getShareUrl()}`;
+            window.open(url, "_blank");
+        }
+
+        function copyToClipboard() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert("Enlace copiado al portapapeles");
+            });
+        }
+
+        // Ocultar la burbuja al hacer clic fuera de ella
+        document.addEventListener("click", function (event) {
+            const bubble = document.getElementById("shareBubble");
+            const button = document.querySelector(".share-button");
+            if (bubble.style.display === "flex" && !bubble.contains(event.target) && !button.contains(event.target)) {
+                bubble.style.display = "none";
+            }
+        });
+    </script>
 </body>
+
 </html>

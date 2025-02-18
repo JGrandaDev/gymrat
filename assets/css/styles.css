@@ -21,6 +21,30 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.text-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    height: 70px;
+    overflow: hidden;
+}
+
+.text-container-animation {
+    display: flex;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.writing-bar {
+    width: 3px;
+    height: 50px;
+    margin-left: 5px;
+    background-color: #181818;
+    transform: rotateZ(10deg);
+    animation: writing-bar 1s ease infinite;
+}
+
 .header {
     position: relative;
     margin-bottom: 100px;
@@ -141,4 +165,10 @@ p {
 .share-bubble button img {
     width: 20px;
     height: 20px;
+}
+
+@keyframes writing-bar {
+    50% {
+        height: 20px;
+    }
 }
